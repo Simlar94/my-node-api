@@ -7,20 +7,22 @@ var randNumMax = 49429; // Number of different available item id:s on GW2:s open
 var fromValue = 0;
 var toValue = 10;
     
- function generateItemId() {
+ /*function generateItemId() {
      
      return Math.floor(Math.random()* randNumMax); //Generates a random item id.
      
  };
-
-    
+   
 var itemIdResult = generateItemId();
 var itemIdResultStr = itemIdResult.toString();
-    
+*/   
 
 function getData() {
      
-     //$.getJSON("https://api.guildwars2.com/v2/items/" + (generateItemId());
+    var itemIdResult = Math.floor(Math.random()* randNumMax); //Generates a random item id.
+    var itemIdResultStr = itemIdResult.toString(); //Converts the result from itemIdResult to a string.
+    
+    //$.getJSON("https://api.guildwars2.com/v2/items/" + (generateItemId());
     
     $.getJSON(urlAPI + itemIdResultStr, function(data) {
             var jsonSliced = data.slice(fromValue, toValue); // Get first 10 objects.
@@ -46,7 +48,6 @@ function getData() {
     };
     
     
-    generateItemId();
     getData();
     
     
